@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* KuberPipes design system: clean industrial neutrals with teal and amber accents. */
+@layer base {
+  :root {
+    /* Surfaces */
+    --background: 42 20% 98%;
+    --surface-alt: 198 24% 94%;
+    --card: 0 0% 100%;
+    --card-foreground: 211 28% 15%;
+    --surface-dark: 210 29% 13%;
+
+    /* Text */
+    --foreground: 211 28% 15%;
+    --body: 209 16% 34%;
+    --muted: 198 24% 94%;
+    --muted-foreground: 208 12% 44%;
+
+    /* Accents */
+    --primary: 184 74% 28%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 184 81% 22%;
+    --accent: 42 88% 64%;
+    --accent-foreground: 211 28% 15%;
+
+    /* Lines & controls */
+    --border: 202 22% 86%;
+    --input: 202 22% 86%;
+    --ring: 184 74% 28%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 38 50% 97%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-body font-sans antialiased;
+    overflow-x: clip;
+  }
+
+  #root {
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-foreground font-bold;
+    letter-spacing: 0;
+  }
+}
+
+@layer components {
+  /* Small uppercase label that sits above every section heading. */
+  .eyebrow {
+    @apply text-primary text-xs font-semibold uppercase;
+    letter-spacing: 0;
+  }
+
+  .section {
+    @apply py-24;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-8 py-4 text-base font-medium transition-colors duration-200;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary text-primary-foreground hover:bg-primary-hover;
+  }
+
+  .btn-outline {
+    @apply btn border border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground;
+  }
+
+  .btn-on-dark {
+    @apply btn border border-background/40 bg-transparent text-background hover:bg-background hover:text-foreground;
+  }
+
+  .card-surface {
+    @apply rounded-lg border border-border bg-card;
+  }
+}
+
+@layer utilities {
+  /* Keep content visible while the browser establishes layout and image dimensions. */
+  .reveal {
+    @apply translate-y-0 opacity-100;
+  }
+
+  .reveal-visible {
+    @apply translate-y-0 opacity-100;
+  }
+
+  .marquee {
+    mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  }
+
+  .marquee-track {
+    animation: marquee-scroll 34s linear infinite;
+  }
+
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    @apply translate-y-0 opacity-100;
+    transition: none;
+  }
+
+  .marquee-track {
+    animation: none;
+  }
+}
