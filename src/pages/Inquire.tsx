@@ -72,7 +72,7 @@ export function Inquire() {
 
   return (
     <>
-      <section className="kp-watermark bg-surface-alt py-20">
+      <section className="bg-surface-alt py-20">
         <div className="container text-center">
           <Reveal className="mx-auto max-w-2xl">
             <p className="eyebrow mb-3">Contact Us</p>
@@ -111,7 +111,7 @@ export function Inquire() {
       </section>
 
       {/* Form card with the accent top border, beside a location card. */}
-      <section className="kp-watermark bg-surface-alt section">
+      <section className="bg-surface-alt section">
         <div className="container grid items-start gap-8 lg:grid-cols-2">
           <Reveal>
             <div className="card-surface border-t-primary overflow-hidden border-t-4 p-8">

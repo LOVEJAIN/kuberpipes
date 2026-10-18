@@ -155,7 +155,7 @@ export function CategoryDetail() {
       </section>
 
       {/* Benefits checklist. */}
-      <section className="kp-watermark bg-surface-alt section">
+      <section className="bg-surface-alt section">
         <div className="container">
           <h2 className="text-primary text-center text-3xl">Key Benefits</h2>
           <div className="mx-auto mt-12 grid max-w-4xl gap-5 sm:grid-cols-2">
@@ -194,7 +194,7 @@ export function CategoryDetail() {
       </section>
 
       {/* Cross-sell to the other line. */}
-      <section className="kp-watermark bg-surface-alt section">
+      <section className="bg-surface-alt section">
         <div className="container">
           <h2 className="text-primary text-center text-3xl">Explore Our Other Range</h2>
           <div className="mx-auto mt-12 grid max-w-3xl gap-6">

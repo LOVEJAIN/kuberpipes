@@ -1,3 +1,4 @@
+
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Award, Check, Factory, Layers, PackageCheck, Recycle, ShieldCheck, Waves } from 'lucide-react'
@@ -43,7 +44,7 @@ function ProductMarquee({ items, tone = 'light' }: { items: string[]; tone?: 'li
   return (
     <div
       className={cn(
-        'marquee overflow-hidden border-y py-3',
+        'marquee w-full min-w-0 max-w-full shrink-0 overflow-hidden border-y py-3',
         tone === 'dark'
           ? 'border-background/15 bg-surface-dark text-background'
           : 'border-border bg-card text-foreground',
@@ -84,10 +85,10 @@ function ProductSwitcher() {
       ]
 
   return (
-    <section className="kp-watermark bg-surface-alt py-14 lg:py-18">
+    <section className="bg-surface-alt py-14 lg:py-18">
       <div className="container">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <div className="lg:sticky lg:top-24">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+          <div className="min-w-0" data-testid="product-switcher-intro">
             <p className="eyebrow mb-3">Two Factories, One Name</p>
             <h2 className="max-w-xl text-2xl leading-tight sm:text-4xl">Tap a product line to experience the range</h2>
             <p className="text-body mt-4 leading-relaxed">
@@ -95,6 +96,7 @@ function ProductSwitcher() {
               toe-puff sheets for footwear manufacturers. The switcher keeps both lines visible
               without mixing their specifications.
             </p>
+
             <div className="mt-7 grid grid-cols-1 gap-3">
               {categories.map((category) => (
                 <button
@@ -118,9 +120,7 @@ function ProductSwitcher() {
                   >
                     {category.factoryLabel}
                   </span>
-                  <span className="block text-sm font-semibold uppercase">
-                    {category.name}
-                  </span>
+                  <span className="block text-sm font-semibold uppercase">{category.name}</span>
                   <span
                     className={cn(
                       'mt-2 block text-sm leading-relaxed',
@@ -132,7 +132,9 @@ function ProductSwitcher() {
                   <span
                     className={cn(
                       'mt-3 block text-xs font-medium',
-                      activeSlug === category.slug ? 'text-primary-foreground/75' : 'text-muted-foreground',
+                      activeSlug === category.slug
+                        ? 'text-primary-foreground/75'
+                        : 'text-muted-foreground',
                     )}
                   >
                     {category.experience}
@@ -142,10 +144,10 @@ function ProductSwitcher() {
             </div>
           </div>
 
-          <div>
-            <div className="overflow-hidden rounded-lg border border-border bg-card shadow-card">
-              <div className="grid gap-0 md:grid-cols-[0.5fr_1.5fr]">
-                <div className="relative aspect-[4/3] overflow-hidden bg-surface-alt md:aspect-auto md:min-h-[320px] md:self-stretch">
+          <div className="relative min-w-0 lg:min-h-[560px]" data-testid="product-switcher-panel">
+            <div className="flex min-w-0 flex-col overflow-hidden rounded-lg border border-border bg-card shadow-card lg:absolute lg:inset-0">
+              <div className="flex min-h-0 min-w-0 flex-1 flex-col">
+                <div className="relative aspect-[16/10] shrink-0 overflow-hidden bg-surface-alt lg:aspect-auto lg:h-[42%]">
                   <Media
                     src={active.image}
                     alt={active.name}
@@ -154,12 +156,15 @@ function ProductSwitcher() {
                     imgClassName="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 hover:scale-105"
                   />
                 </div>
-                <div className="kp-scrollable max-h-[520px] overflow-y-auto p-7 lg:max-h-[560px]">
-                  <span className="text-primary text-xs font-semibold uppercase">
-                    {active.badge}
-                  </span>
+
+                <div
+                  className="kp-scrollable min-h-0 min-w-0 flex-1 p-6 sm:p-7 lg:overflow-y-auto"
+                  data-testid="product-switcher-details"
+                >
+                  <span className="text-primary text-xs font-semibold uppercase">{active.badge}</span>
                   <h3 className="mt-3 text-2xl">{active.name}</h3>
                   <p className="text-body mt-3 text-sm leading-relaxed">{active.intro}</p>
+
                   <div className="mt-6 grid gap-3 sm:grid-cols-3">
                     {stats.map(([value, label]) => (
                       <div key={label} className="rounded-md bg-surface-alt p-3">
@@ -168,6 +173,7 @@ function ProductSwitcher() {
                       </div>
                     ))}
                   </div>
+
                   <div className="mt-6 grid gap-3 sm:grid-cols-2">
                     {visibleItems.map((item) => (
                       <div key={item.slug} className="rounded-md border border-border bg-background p-3">
@@ -176,6 +182,7 @@ function ProductSwitcher() {
                       </div>
                     ))}
                   </div>
+
                   <Link
                     to={`/products/${active.slug}`}
                     className="text-primary mt-6 inline-flex items-center gap-2 text-sm font-semibold hover:underline"
@@ -184,6 +191,7 @@ function ProductSwitcher() {
                   </Link>
                 </div>
               </div>
+
               <ProductMarquee items={active.marquee} />
             </div>
           </div>
@@ -198,13 +206,12 @@ export function Home() {
 
   return (
     <>
-      <section className="kp-watermark overflow-hidden pt-10 pb-12 lg:pt-16 lg:pb-16">
+      <section className="overflow-hidden pt-10 pb-12 lg:pt-16 lg:pb-16">
         <div className="container grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
           <Reveal>
             <p className="eyebrow mb-4">Two factories under one trusted name</p>
             <h1 className="text-4xl sm:text-5xl lg:text-display">
-              KuberPipes for{' '}
-              <span className="text-primary">water tanks and toe puff sheets</span>
+              KuberPipes for <span className="text-primary">water tanks and toe puff sheets</span>
             </h1>
             <p className="text-body mt-6 max-w-lg text-lg leading-relaxed">
               Visitors can move between both product lines in one website: rooftop and loft tanks
@@ -257,6 +264,7 @@ export function Home() {
                   <p className="mt-2 text-sm text-white/80">Margo, Gangapyari, Pragati and Loft models.</p>
                 </div>
               </Link>
+
               <Link
                 to="/products/topuf-sheets"
                 className="group relative aspect-[3/4] overflow-hidden rounded-lg bg-surface-alt shadow-card"
@@ -283,15 +291,13 @@ export function Home() {
 
       <ProductSwitcher />
 
-      {/* Why choose us */}
-      <section className="kp-watermark bg-surface-alt section">
+      <section className="bg-surface-alt section">
         <div className="container">
           <SectionHeading
             eyebrow="Why Choose Us"
             title="What sets us apart"
             subtitle="The things our customers tell us keep them coming back."
           />
-
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {features.map(({ Icon, title, body }, i) => (
               <Reveal key={title} delay={i * 100}>
@@ -310,7 +316,6 @@ export function Home() {
 
       <ProductMarquee items={[...categories[0].marquee.slice(0, 10), ...categories[1].marquee.slice(0, 8)]} tone="dark" />
 
-      {/* About strip with the floating years badge. */}
       <section className="section">
         <div className="container grid items-center gap-14 lg:grid-cols-2">
           <Reveal>
@@ -355,25 +360,20 @@ export function Home() {
                 </li>
               ))}
             </ul>
-            <Link
-              to="/about"
-              className="text-primary mt-7 inline-flex items-center gap-2 font-medium hover:underline"
-            >
+            <Link to="/about" className="text-primary mt-7 inline-flex items-center gap-2 font-medium hover:underline">
               Learn more about us <ArrowRight className="size-4" />
             </Link>
           </Reveal>
         </div>
       </section>
 
-      {/* Factory capabilities */}
-      <section className="kp-watermark bg-surface-alt section">
+      <section className="bg-surface-alt section">
         <div className="container">
           <SectionHeading
             eyebrow="Capabilities"
             title="Built for practical industrial supply"
             subtitle="The site is static, but the product paths are clear: tanks for storage buyers and toe-puff sheets for footwear units."
           />
-
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {[
               {
