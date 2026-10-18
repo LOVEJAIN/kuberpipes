@@ -124,7 +124,7 @@ export function About() {
       </section>
 
       {/* Mission / vision */}
-      <section className="bg-surface-alt section">
+      <section className="kp-watermark bg-surface-alt section">
         <div className="container grid gap-6 md:grid-cols-2">
           {[
             {
@@ -176,7 +176,7 @@ export function About() {
       </section>
 
       {/* Timeline — centre line on desktop, single column on mobile. */}
-      <section className="bg-surface-alt section">
+      <section className="kp-watermark bg-surface-alt section">
         <div className="container">
           <SectionHeading eyebrow="Our Journey" title="A history of steady growth" />
           <div className="relative mx-auto mt-14 max-w-4xl">

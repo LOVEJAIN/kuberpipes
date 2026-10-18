@@ -118,7 +118,7 @@ export function Products() {
 
   return (
     <>
-      <section className="bg-surface-alt py-20">
+      <section className="kp-watermark bg-surface-alt py-20">
         <div className="container text-center">
           <Reveal className="mx-auto max-w-2xl">
             <p className="eyebrow mb-3">Our Products</p>
@@ -154,7 +154,7 @@ export function Products() {
       </section>
 
       {/* Active category's listing — structurally different per product line. */}
-      <section className="bg-surface-alt section">
+      <section className="kp-watermark bg-surface-alt section">
         <div className="container">
           <Reveal className="mx-auto mb-12 max-w-2xl text-center">
             <p className="text-primary text-sm font-semibold uppercase">{active.experience}</p>

@@ -109,36 +109,6 @@ export function CategoryDetail() {
 
       <RangeMarquee items={category.marquee} />
 
-      {/* Variant cards. */}
-      <section className="bg-surface-alt section">
-        <div className="container">
-          <h2 className="text-primary text-center text-3xl">Available Range</h2>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
-            {category.variants.map((variant, i) => (
-              <Reveal key={variant.name} delay={i * 80}>
-                <div className="card-surface hover:shadow-card h-full overflow-hidden text-center transition-shadow">
-                  <div className="aspect-square">
-                    <Media
-                      src={variant.image}
-                      alt={variant.name}
-                      label={`${variant.name} (1:1, cut-out)`}
-                      width={480}
-                      height={480}
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="text-sm">{variant.name}</h3>
-                    <p className="text-muted-foreground mt-1 text-xs leading-relaxed">
-                      {variant.blurb}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Specification table + highlight chips. */}
       <section className="section">
         <div className="container">
@@ -185,7 +155,7 @@ export function CategoryDetail() {
       </section>
 
       {/* Benefits checklist. */}
-      <section className="bg-surface-alt section">
+      <section className="kp-watermark bg-surface-alt section">
         <div className="container">
           <h2 className="text-primary text-center text-3xl">Key Benefits</h2>
           <div className="mx-auto mt-12 grid max-w-4xl gap-5 sm:grid-cols-2">
@@ -224,7 +194,7 @@ export function CategoryDetail() {
       </section>
 
       {/* Cross-sell to the other line. */}
-      <section className="bg-surface-alt section">
+      <section className="kp-watermark bg-surface-alt section">
         <div className="container">
           <h2 className="text-primary text-center text-3xl">Explore Our Other Range</h2>
           <div className="mx-auto mt-12 grid max-w-3xl gap-6">

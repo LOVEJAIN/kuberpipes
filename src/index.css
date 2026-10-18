@@ -112,6 +112,63 @@
   .marquee:hover .marquee-track {
     animation-play-state: paused;
   }
+
+  /* KuberPipes repeating wordmark watermark. Low-opacity SVG tile used as a brand background.
+     Keeps text subtle on light surfaces without touching readability of foreground content. */
+  .kp-watermark {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .kp-watermark::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.07;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='360' height='120' viewBox='0 0 360 120'><text x='0' y='70' font-family='Inter, Arial, sans-serif' font-size='44' font-weight='800' letter-spacing='-1'><tspan fill='%23134e4a'>Kuber</tspan><tspan fill='%23e3b23c'>Pipes</tspan></text></svg>");
+    background-repeat: repeat;
+    background-size: 360px 120px;
+    transform: rotate(-8deg) scale(1.15);
+    transform-origin: center;
+  }
+
+  .kp-watermark > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .kp-watermark--dark::before {
+    opacity: 0.08;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='360' height='120' viewBox='0 0 360 120'><text x='0' y='70' font-family='Inter, Arial, sans-serif' font-size='44' font-weight='800' letter-spacing='-1'><tspan fill='%23ffffff'>Kuber</tspan><tspan fill='%23e3b23c'>Pipes</tspan></text></svg>");
+  }
+
+  /* Internal scroll container for the product switcher detail card.
+     Thin branded scrollbar so the brand feel carries into the scroll affordance. */
+  .kp-scrollable {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--primary) / 0.55) transparent;
+    scroll-behavior: smooth;
+    overscroll-behavior: contain;
+  }
+
+  .kp-scrollable::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .kp-scrollable::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .kp-scrollable::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.55);
+    border-radius: 999px;
+  }
+
+  .kp-scrollable::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary));
+  }
 }
 
 @keyframes marquee-scroll {

@@ -84,10 +84,10 @@ function ProductSwitcher() {
       ]
 
   return (
-    <section className="bg-surface-alt py-14 lg:py-18">
+    <section className="kp-watermark bg-surface-alt py-14 lg:py-18">
       <div className="container">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <div>
+          <div className="lg:sticky lg:top-24">
             <p className="eyebrow mb-3">Two Factories, One Name</p>
             <h2 className="max-w-xl text-2xl leading-tight sm:text-4xl">Tap a product line to experience the range</h2>
             <p className="text-body mt-4 leading-relaxed">
@@ -145,16 +145,16 @@ function ProductSwitcher() {
           <div>
             <div className="overflow-hidden rounded-lg border border-border bg-card shadow-card">
               <div className="grid gap-0 md:grid-cols-[0.5fr_1.5fr]">
-                <div className="aspect-[4/3] self-start">
+                <div className="relative aspect-[4/3] overflow-hidden bg-surface-alt md:aspect-auto md:min-h-[320px] md:self-stretch">
                   <Media
                     src={active.image}
                     alt={active.name}
                     width={720}
                     height={540}
-                    imgClassName="transition-transform duration-700 hover:scale-105"
+                    imgClassName="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 hover:scale-105"
                   />
                 </div>
-                <div className="p-7">
+                <div className="kp-scrollable max-h-[520px] overflow-y-auto p-7 lg:max-h-[560px]">
                   <span className="text-primary text-xs font-semibold uppercase">
                     {active.badge}
                   </span>
@@ -198,7 +198,7 @@ export function Home() {
 
   return (
     <>
-      <section className="overflow-hidden pt-10 pb-12 lg:pt-16 lg:pb-16">
+      <section className="kp-watermark overflow-hidden pt-10 pb-12 lg:pt-16 lg:pb-16">
         <div className="container grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
           <Reveal>
             <p className="eyebrow mb-4">Two factories under one trusted name</p>
@@ -237,10 +237,10 @@ export function Home() {
           </Reveal>
 
           <Reveal delay={120}>
-            <div className="ml-auto grid w-full max-w-xl gap-4 sm:grid-cols-2">
+            <div className="ml-auto grid w-full max-w-xl gap-4 sm:grid-cols-2 sm:[grid-auto-rows:1fr]">
               <Link
                 to="/products/water-tanks"
-                className="group relative aspect-[4/3] overflow-hidden rounded-lg shadow-card sm:aspect-[3/4]"
+                className="group relative aspect-[3/4] overflow-hidden rounded-lg bg-surface-alt shadow-card"
               >
                 <Media
                   src="/images/hero/tank-layers.png"
@@ -248,7 +248,7 @@ export function Home() {
                   width={720}
                   height={900}
                   priority
-                  imgClassName="transition-transform duration-700 group-hover:scale-105"
+                  imgClassName="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-6 text-white">
@@ -259,7 +259,7 @@ export function Home() {
               </Link>
               <Link
                 to="/products/topuf-sheets"
-                className="group relative aspect-[4/3] overflow-hidden rounded-lg shadow-card sm:aspect-[3/4]"
+                className="group relative aspect-[3/4] overflow-hidden rounded-lg bg-surface-alt shadow-card"
               >
                 <Media
                   src="/images/products/toe-puff-diagram.png"
@@ -267,7 +267,7 @@ export function Home() {
                   width={720}
                   height={900}
                   priority
-                  imgClassName="transition-transform duration-700 group-hover:scale-105"
+                  imgClassName="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-6 text-white">
@@ -284,7 +284,7 @@ export function Home() {
       <ProductSwitcher />
 
       {/* Why choose us */}
-      <section className="bg-surface-alt section">
+      <section className="kp-watermark bg-surface-alt section">
         <div className="container">
           <SectionHeading
             eyebrow="Why Choose Us"
@@ -366,7 +366,7 @@ export function Home() {
       </section>
 
       {/* Factory capabilities */}
-      <section className="bg-surface-alt section">
+      <section className="kp-watermark bg-surface-alt section">
         <div className="container">
           <SectionHeading
             eyebrow="Capabilities"
