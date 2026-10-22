@@ -30,6 +30,18 @@ export function CategoryDetail() {
   if (!category) return <Navigate to="/products" replace />
 
   const others = categories.filter((c) => c.slug !== category.slug)
+  const specColumns = category.slug === 'water-tanks'
+    ? ['Product', 'Capacity', 'Layers', 'Material', 'Colour']
+    : category.specColumns
+  const specRows = category.slug === 'water-tanks'
+    ? category.items.map((item) => ({
+        Product: item.name,
+        Capacity: item.meta?.[0] ?? '',
+        Layers: item.meta?.[1] ?? '',
+        Material: 'Food-grade virgin LDPE',
+        Colour: item.meta?.[2] === 'Black' ? 'Black' : item.slug.startsWith('loft') ? 'Confirm with our team' : 'White',
+      } as Record<string, string>))
+    : category.specRows
 
   return (
     <>
@@ -118,7 +130,7 @@ export function CategoryDetail() {
               <table className="w-full text-left text-sm">
                 <thead className="bg-surface-alt">
                   <tr>
-                    {category.specColumns.map((col) => (
+                    {specColumns.map((col) => (
                       <th key={col} className="text-foreground px-5 py-3 font-semibold">
                         {col}
                       </th>
@@ -126,9 +138,9 @@ export function CategoryDetail() {
                   </tr>
                 </thead>
                 <tbody>
-                  {category.specRows.map((row) => (
-                    <tr key={row[category.specColumns[0]]} className="border-border border-t">
-                      {category.specColumns.map((col, i) => (
+                  {specRows.map((row) => (
+                    <tr key={row[specColumns[0]]} className="border-border border-t">
+                      {specColumns.map((col, i) => (
                         <td
                           key={col}
                           className={i === 0 ? 'text-foreground px-5 py-3 font-medium' : 'text-body px-5 py-3'}
@@ -172,7 +184,7 @@ export function CategoryDetail() {
       </section>
 
       {/* Installation steps (tanks) or applications (sheets). */}
-      <section className="section">
+      {category.usage.length > 0 && <section className="section">
         <div className="container">
           <h2 className="text-primary text-center text-3xl">{category.usageTitle}</h2>
           <div className="mx-auto mt-12 max-w-3xl space-y-6">
@@ -193,6 +205,7 @@ export function CategoryDetail() {
         </div>
       </section>
 
+      }
       {/* Cross-sell to the other line. */}
       <section className="bg-surface-alt section">
         <div className="container">

@@ -12,15 +12,16 @@ type MediaProps = {
   width?: number
   height?: number
   priority?: boolean
+  fit?: 'cover' | 'contain'
 }
 
-function optimizedSource(src: string, width: number, height?: number) {
+function optimizedSource(src: string, width: number, height?: number, fit = 'cover') {
   if (import.meta.env.DEV) return src
 
   const params = new URLSearchParams({ url: src, w: String(width), fm: 'webp', q: '72' })
   if (height) {
     params.set('h', String(height))
-    params.set('fit', 'cover')
+    params.set('fit', fit)
   }
 
   return `/.netlify/images?${params.toString()}`
@@ -35,16 +36,17 @@ export function Media({
   width = 1200,
   height,
   priority = false,
+  fit = 'cover',
 }: MediaProps) {
   if (src) {
     return (
       <img
-        src={optimizedSource(src, width, height)}
+        src={optimizedSource(src, width, height, fit)}
         alt={alt}
         loading={priority ? 'eager' : 'lazy'}
         decoding="async"
         fetchPriority={priority ? 'high' : 'auto'}
-        className={cn('block h-full w-full object-cover', className, imgClassName)}
+        className={cn('block h-full w-full', fit === 'contain' ? 'object-contain' : 'object-cover', className, imgClassName)}
       />
     )
   }

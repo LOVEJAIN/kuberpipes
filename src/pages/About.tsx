@@ -8,6 +8,8 @@ import { company } from '@/data/site'
 const stats = [
   { value: `${new Date().getFullYear() - company.foundedYear}+`, label: 'Years of Experience' },
   { value: '100-10000 L', label: 'Tank Range' },
+  { value: '0.3-1.2 mm', label: 'Toe Puff Sheets' },
+  { value: '0.4-1 mm', label: 'Toe Puff Rolls' },
 ]
 
 const values = [
@@ -46,23 +48,23 @@ const values = [
 const timeline = [
   {
     year: String(company.foundedYear),
-    title: 'KuberPipes begins manufacturing',
-    body: 'Our roots lie in practical polymer manufacturing: understanding raw materials, refining processes and building lasting relationships with customers.',
+    title: 'Built on care, shaped by trust',
+    body: 'Our story begins with a simple responsibility: make products people can depend on. Understanding materials and listening to customers remain at the heart of our work.',
   },
   {
     year: 'Water storage',
-    title: 'Tank range expands',
-    body: 'Our water-storage work centres on rotational moulding, with material selection and process refinement supporting Margo, Gangapyari and compact loft tanks.',
+    title: 'Supporting everyday essentials',
+    body: 'Water storage touches daily life in homes and workplaces. Our Margo, Gangapyari and loft tanks reflect that responsibility, with attention to material selection and rotational moulding at every step.',
   },
   {
     year: 'Footwear',
-    title: 'Toe puff sheet line grows',
-    body: 'Our experience with polymers also serves footwear manufacturing through Toe Puff and Ping Pong sheets and rolls, with attention to uniform thickness, smooth finish and heat-activated shaping.',
+    title: 'Growing alongside footwear makers',
+    body: 'The same care extends to footwear materials. With spunbond/spunlace sheets and polydull rolls, we focus on the thickness and quality that help our customers bring their own products to life.',
   },
   {
     year: 'Today',
-    title: 'Progress through research',
-    body: 'Our direction is continued investment in R&D and improved processing across both industries, working towards consistent quality, efficient material use and products that meet evolving customer needs.',
+    title: 'A commitment carried forward',
+    body: 'Our next chapter is guided by research, thoughtful use of technology and the trust of the people we serve. Across both industries, our ambition is to keep learning, improve quality and make every customer relationship last.',
   },
 ]
 
@@ -88,8 +90,10 @@ export function About() {
           <Reveal delay={120}>
             <div className="card-surface shadow-card aspect-[4/3] overflow-hidden">
               <Media
-                src="/images/factories/footwear-factory.png"
-                alt="KuberPipes footwear materials facility"
+                src="/images/gg-group-logo.png"
+                fit="contain"
+                imgClassName="bg-white p-8"
+                alt="GG Group logo"
                 width={960}
                 height={720}
                 priority

@@ -38,7 +38,8 @@ function SkuCard({ item, category, delay }: { item: ProductItem; category: Categ
           label={`${item.name} (3:4)`}
           width={640}
           height={800}
-          imgClassName="transition-transform duration-500 group-hover:scale-105"
+          fit="contain"
+          imgClassName="bg-white px-5 pt-12 pb-32 transition-transform duration-500 group-hover:scale-105"
         />
         <div
           aria-hidden
@@ -124,8 +125,8 @@ export function Products() {
             <p className="eyebrow mb-3">Our Products</p>
             <h1 className="text-4xl sm:text-5xl">Water Tanks &amp; Toe Puff Sheets</h1>
             <p className="text-body mt-5 text-lg leading-relaxed">
-              Two factory lines serving different industries. Tap either option and the product
-              catalogue below changes instantly.
+              Water-storage tanks for residential and commercial needs, and toe puff sheets
+              and rolls in a choice of thicknesses for footwear manufacturing.
             </p>
           </Reveal>
         </div>
@@ -185,8 +186,9 @@ export function Products() {
               <div className="bg-primary text-primary-foreground flex flex-col justify-center p-10 lg:p-14">
                 <h2 className="text-primary-foreground text-3xl">Need a custom specification?</h2>
                 <p className="mt-4 leading-relaxed opacity-90">
-                  Capacities, densities, colours and sheet sizes can be produced to your
-                  requirement on bulk orders. Send us your spec and we will come back with options.
+                  {activeSlug === 'water-tanks'
+                    ? 'Discuss tank capacity, layer construction and order quantities with our team. We can help match your residential or commercial water-storage requirements to suitable manufacturing options.'
+                    : 'Discuss your required toe puff thickness, sheet or roll format and order quantities. Our team can help with spunbond/spunlace sheets and black or white polydull rolls.'}
                 </p>
                 <Link
                   to="/inquire"
@@ -197,8 +199,8 @@ export function Products() {
               </div>
               <div className="bg-card min-h-[280px]">
                 <Media
-                  src="/images/factories/tank-factory.png"
-                  alt="KuberPipes product range"
+                  src={activeSlug === 'water-tanks' ? '/images/factories/tank-factory.png' : '/images/factories/footwear-factory.png'}
+                  alt={activeSlug === 'water-tanks' ? 'Margo and Gangapyari tank factory' : 'Toe puff sheets and rolls factory'}
                   width={960}
                   height={560}
                 />

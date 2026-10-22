@@ -79,8 +79,8 @@ function ProductSwitcher() {
         ['Residential + commercial', 'Use cases'],
       ]
     : [
-        ['0.3-1.8 mm', 'Thickness range'],
-        ['40" x 60"', 'Sheet size'],
+        ['0.3-1.2 mm', 'Thickness range'],
+        ['Sheets & rolls', 'Formats'],
         ['Heat activated', 'Production fit'],
       ]
 
@@ -187,7 +187,7 @@ function ProductSwitcher() {
                     to={`/products/${active.slug}`}
                     className="text-primary mt-6 inline-flex items-center gap-2 text-sm font-semibold hover:underline"
                   >
-                    View full range <ArrowRight className="size-4" />
+                    Show products <ArrowRight className="size-4" />
                   </Link>
                 </div>
               </div>
@@ -233,7 +233,7 @@ export function Home() {
             <div className="mt-8 grid max-w-xl gap-3 sm:grid-cols-3">
               {[
                 ['100-10000 L', 'Tank range'],
-                ['0.3-1.8 mm', 'Sheet thickness'],
+                ['0.3-1.2 mm', 'Sheet thickness'],
               ].map(([value, label]) => (
                 <div key={label} className="rounded-lg border border-border bg-card p-4">
                   <span className="text-foreground block text-lg font-bold">{value}</span>
@@ -250,7 +250,7 @@ export function Home() {
                 className="group relative aspect-[3/4] overflow-hidden rounded-lg bg-surface-alt shadow-card"
               >
                 <Media
-                  src="/images/hero/tank-layers.png"
+                  src="/images/products/margo-hero-underwater.png"
                   alt="KuberPipes two-layer and three-layer tanks"
                   width={720}
                   height={900}
@@ -270,7 +270,7 @@ export function Home() {
                 className="group relative aspect-[3/4] overflow-hidden rounded-lg bg-surface-alt shadow-card"
               >
                 <Media
-                  src="/images/products/toe-puff-diagram.png"
+                  src="/images/products/toe-puff-cover.png"
                   alt="Toe puff sheet grades"
                   width={720}
                   height={900}
@@ -322,7 +322,9 @@ export function Home() {
             <div className="relative">
               <div className="card-surface shadow-card aspect-[4/3] overflow-hidden">
                 <Media
-                  src="/images/factories/tank-factory.png"
+                  src="/images/gg-group-logo.png"
+                  fit="contain"
+                  imgClassName="bg-white p-8"
                   alt="Inside the KuberPipes facility"
                   width={960}
                   height={720}
