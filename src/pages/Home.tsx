@@ -17,13 +17,13 @@ const features = [
   },
   {
     Icon: ShieldCheck,
-    title: 'Batch Consistency',
-    body: 'Every batch is checked against the same reference so repeat orders match the ones before them.',
+    title: 'Dedicated R&D Lab',
+    body: 'Our dedicated R&D lab focuses on material formulations, consistent performance and ongoing improvements in water tanks and footwear sheets.',
   },
   {
     Icon: Factory,
-    title: 'In-House Manufacturing',
-    body: 'Moulding, finishing and quality control happen under one roof, so we control lead times directly.',
+    title: 'Innovation with Purpose',
+    body: 'We refine material formulations and manufacturing processes to improve tank durability and footwear-sheet consistency, with a focus on efficient resource use and lasting performance.',
   },
   {
     Icon: Recycle,
@@ -33,7 +33,7 @@ const features = [
 ]
 
 const commitments = [
-  'Two established product lines under one roof',
+  'A vision for quality that exceeds applicable BIS standards',
   'Bulk and contract supply for manufacturers',
   'Direct technical support from our team',
 ]
@@ -76,7 +76,7 @@ function ProductSwitcher() {
     ? [
         ['100-10000 L', 'Tank capacities'],
         ['2 & 3 layer', 'Tank construction'],
-        ['Rooftop + loft', 'Use cases'],
+        ['Residential + commercial', 'Use cases'],
       ]
     : [
         ['0.3-1.8 mm', 'Thickness range'],
@@ -90,11 +90,11 @@ function ProductSwitcher() {
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div className="min-w-0" data-testid="product-switcher-intro">
             <p className="eyebrow mb-3">Two Factories, One Name</p>
-            <h2 className="max-w-xl text-2xl leading-tight sm:text-4xl">Tap a product line to experience the range</h2>
+            <h2 className="max-w-xl text-2xl leading-tight sm:text-4xl">Water Tanks & Toe Puff Sheets</h2>
             <p className="text-body mt-4 leading-relaxed">
-              KuberPipes serves two different markets: roto-moulded tanks for water storage and
-              toe-puff sheets for footwear manufacturers. The switcher keeps both lines visible
-              without mixing their specifications.
+              Margo and Gangapyari water tanks provide dependable storage for residential and
+              commercial spaces. Our heat-activated toe puff sheets give footwear its shape,
+              structure and a consistent finish.
             </p>
 
             <div className="mt-7 grid grid-cols-1 gap-3">
@@ -214,8 +214,8 @@ export function Home() {
               KuberPipes for <span className="text-primary">water tanks and toe puff sheets</span>
             </h1>
             <p className="text-body mt-6 max-w-lg text-lg leading-relaxed">
-              Visitors can move between both product lines in one website: rooftop and loft tanks
-              for water storage, and heat-activated toe puff sheets for footwear production.
+              Dependable Margo and Gangapyari water tanks for residential and commercial use,
+              alongside precision-made toe puff sheets that give footwear lasting shape and structure.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link to="/products" className="btn-primary">
@@ -261,7 +261,7 @@ export function Home() {
                 <div className="absolute inset-x-0 bottom-0 p-6 text-white">
                   <Waves className="mb-3 size-6" />
                   <h2 className="text-2xl text-white">Water Tanks</h2>
-                  <p className="mt-2 text-sm text-white/80">Margo, Gangapyari, Pragati and Loft models.</p>
+                  <p className="mt-2 text-sm text-white/80">Margo, Gangapyari and Loft models.</p>
                 </div>
               </Link>
 
@@ -322,7 +322,7 @@ export function Home() {
             <div className="relative">
               <div className="card-surface shadow-card aspect-[4/3] overflow-hidden">
                 <Media
-                  src="/images/about/facility-floor.jpg"
+                  src="/images/factories/tank-factory.png"
                   alt="Inside the KuberPipes facility"
                   width={960}
                   height={720}
@@ -347,8 +347,8 @@ export function Home() {
               thickness for superior strength and leak-proof performance.
             </p>
             <p className="text-body mt-4 leading-relaxed">
-              Our range covers 2-layer and 3-layer tanks under the trusted MARGO, GANGAPYARI and
-              PRAGATI names — selected models built to ISI standards — plus compact loft tanks for
+              Our range covers 2-layer and 3-layer tanks under the trusted MARGO and
+              GANGAPYARI names — selected models built to ISI standards — plus compact loft tanks for
               indoor spaces. Alongside water storage, we manufacture heat-activated toe puff
               sheets for the footwear industry, holding both lines to the same standard.
             </p>
@@ -371,25 +371,25 @@ export function Home() {
         <div className="container">
           <SectionHeading
             eyebrow="Capabilities"
-            title="Built for practical industrial supply"
-            subtitle="The site is static, but the product paths are clear: tanks for storage buyers and toe-puff sheets for footwear units."
+            title="Manufacturing shaped around your requirements"
+            subtitle="From water storage to footwear materials, we focus on the specifications, performance and consistency your application needs."
           />
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {[
               {
                 Icon: Factory,
-                title: 'Separate product focus',
-                body: 'Each factory line keeps its own material, sizing and quality-control process, so buyers see the right details quickly.',
+                title: 'Manufactured to Your Needs',
+                body: 'We can manufacture to client needs and expectations, working together to agree on suitable specifications, performance requirements and production feasibility.',
               },
               {
                 Icon: Layers,
-                title: 'Layer and thickness options',
-                body: 'Tank layers, tank capacities and toe-puff sheet thicknesses are shown prominently for fast comparison.',
+                title: 'Application-Led Material Selection',
+                body: 'We help match tank capacity and layer construction or toe puff grade and thickness to the intended use, balancing performance with processing requirements.',
               },
               {
                 Icon: PackageCheck,
-                title: 'Bulk-ready enquiries',
-                body: 'Visitors can move from any page to quote requests by phone or WhatsApp without needing an account.',
+                title: 'Consistent Production Quality',
+                body: 'Our focus on material selection, controlled processing and finished-product checks supports dependable tank construction and uniform footwear sheets across repeat orders.',
               },
             ].map(({ Icon, title, body }, i) => (
               <Reveal key={i} delay={i * 100}>

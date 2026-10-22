@@ -7,8 +7,6 @@ import { company } from '@/data/site'
 
 const stats = [
   { value: `${new Date().getFullYear() - company.foundedYear}+`, label: 'Years of Experience' },
-  { value: '2', label: 'Dedicated Factories' },
-  { value: '2', label: 'Product Lines' },
   { value: '100-10000 L', label: 'Tank Range' },
 ]
 
@@ -16,12 +14,12 @@ const values = [
   {
     Icon: Users,
     title: 'Customer Focus',
-    body: 'We combine quality craftsmanship, innovation, and customer satisfaction to deliver water storage solutions that stand the test of time.',
+    body: 'We listen to water-storage buyers and footwear manufacturers, matching capacity, material grade and processing needs to their applications.',
   },
   {
     Icon: ShieldCheck,
     title: 'Quality First',
-    body: 'Our products comply with government quality standards and carry the prestigious ISI certification on selected models.',
+    body: 'Our goal is to make products that exceed applicable BIS standards through careful material selection, testing and continuous improvement.',
   },
   {
     Icon: Handshake,
@@ -36,7 +34,7 @@ const values = [
   {
     Icon: Compass,
     title: 'Innovation',
-    body: 'Every tank is manufactured using advanced rotational moulding technology and premium-grade raw materials for reliability and structural integrity.',
+    body: 'We improve rotational moulding and footwear-sheet formulations to deliver reliable tank construction, uniform sheet thickness and dependable shaping performance.',
   },
   {
     Icon: Leaf,
@@ -49,22 +47,22 @@ const timeline = [
   {
     year: String(company.foundedYear),
     title: 'KuberPipes begins manufacturing',
-    body: 'The company starts with a focus on practical polymer products for industrial and household use.',
+    body: 'Our roots lie in practical polymer manufacturing: understanding raw materials, refining processes and building lasting relationships with customers.',
   },
   {
     year: 'Water storage',
     title: 'Tank range expands',
-    body: 'Roto-moulded Margo, Gangapyari, Pragati and loft tanks become the primary water-storage line.',
+    body: 'Our water-storage work centres on rotational moulding, with material selection and process refinement supporting Margo, Gangapyari and compact loft tanks.',
   },
   {
     year: 'Footwear',
     title: 'Toe puff sheet line grows',
-    body: 'A separate product line serves shoe manufacturers with heat-activated stiffener sheets in multiple grades.',
+    body: 'Our experience with polymers also serves footwear manufacturing through Toe Puff and Ping Pong sheets and rolls, with attention to uniform thickness, smooth finish and heat-activated shaping.',
   },
   {
     year: 'Today',
-    title: 'Two specialised factories',
-    body: 'Both product families operate under the same KuberPipes name while keeping their own process and buyer requirements.',
+    title: 'Progress through research',
+    body: 'Our direction is continued investment in R&D and improved processing across both industries, working towards consistent quality, efficient material use and products that meet evolving customer needs.',
   },
 ]
 
@@ -79,19 +77,19 @@ export function About() {
               {company.name}: manufacturing since {company.foundedYear}
             </h1>
             <p className="text-body mt-6 leading-relaxed">
-              {company.name} Pvt. Ltd. is a trusted manufacturer of high-quality water storage
-              tanks and loft tanks, built for modern households and commercial establishments.
-              We specialise in 2-layer and 3-layer tanks, produced with advanced rotational
-              moulding technology and premium-grade raw materials for superior strength, hygiene
-              and long-lasting performance — every tank engineered to keep stored water safe from
-              contamination and the elements.
+              {company.name} Pvt. Ltd. manufactures water-storage tanks and Toe Puff and Ping Pong
+              sheets and rolls for the footwear industry. Our focus is good-quality polymer
+              products, supported by research, careful material selection and consistent processing.
+              From rotationally moulded Margo and Gangapyari tanks to footwear sheets with uniform
+              thickness and a smooth finish, we work towards performance that exceeds applicable
+              BIS standards and meets our customers' everyday needs.
             </p>
           </Reveal>
           <Reveal delay={120}>
             <div className="card-surface shadow-card aspect-[4/3] overflow-hidden">
               <Media
-                src="/images/about/facility-floor.jpg"
-                alt="KuberPipes facility"
+                src="/images/factories/footwear-factory.png"
+                alt="KuberPipes footwear materials facility"
                 width={960}
                 height={720}
                 priority
@@ -103,7 +101,7 @@ export function About() {
 
       {/* Stat row — the last tile is filled, as on the reference. */}
       <section className="pb-20">
-        <div className="container grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="container grid gap-5 sm:grid-cols-2">
           {stats.map((stat, i) => (
             <Reveal key={stat.label} delay={i * 80}>
               <div
@@ -130,12 +128,12 @@ export function About() {
             {
               Icon: Target,
               title: 'Our Mission',
-              body: 'To provide dependable and efficient products that support the everyday water storage needs of homes, businesses, and institutions across the country.',
+              body: 'To manufacture dependable water-storage tanks and footwear materials through disciplined material selection, consistent processing and responsive technical support.',
             },
             {
               Icon: Compass,
               title: 'Our Vision',
-              body: 'To combine quality craftsmanship, innovation, and customer satisfaction, delivering water storage solutions that stand the test of time.',
+              body: 'To make high-quality polymer products that exceed applicable BIS standards, advancing both water storage and footwear manufacturing through research, technology and responsible resource use.',
             },
           ].map(({ Icon, title, body }, i) => (
             <Reveal key={title} delay={i * 120}>
@@ -157,7 +155,7 @@ export function About() {
           <SectionHeading
             eyebrow="Our Values"
             title="The principles that guide us"
-            subtitle="What we hold every tank to, from raw material through to your rooftop."
+            subtitle="The standards we bring to every tank, sheet and roll, from material selection to finished product."
           />
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {values.map(({ Icon, title, body }, i) => (

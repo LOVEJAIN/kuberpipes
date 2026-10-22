@@ -79,7 +79,7 @@ function RangeMarquee({ items }: { items: string[] }) {
   )
 }
 
-/** Water Tanks: grouped by brand — Margo, Gangapyari, Pragati, Loft each get their own row. */
+/** Water Tanks: grouped by brand — Margo, Gangapyari, Loft each get their own row. */
 function TanksListing({ category }: { category: Category }) {
   const groups = groupByBrand(category.items)
   return (
@@ -197,7 +197,7 @@ export function Products() {
               </div>
               <div className="bg-card min-h-[280px]">
                 <Media
-                  src="/images/products/margo-gangapyari-warehouse.png"
+                  src="/images/factories/tank-factory.png"
                   alt="KuberPipes product range"
                   width={960}
                   height={560}

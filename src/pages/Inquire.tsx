@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: 'What warranty do you offer?',
-    a: 'Margo tanks carry a warranty of up to 10 years; Gangapyari and Pragati tanks carry a 5-year warranty.',
+    a: 'Margo tanks carry a warranty of up to 10 years; Gangapyari tanks carry a 5-year warranty.',
   },
   {
     q: 'How are orders delivered?',
@@ -177,7 +177,7 @@ export function Inquire() {
             <div className="card-surface overflow-hidden">
               <div className="aspect-[4/3]">
               <Media
-                src="/images/about/facility-floor.jpg"
+                src="/images/factories/tank-factory.png"
                 alt="Our location"
                 width={960}
                 height={720}
